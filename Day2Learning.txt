@@ -1,0 +1,34 @@
+
+Created multiple C# console projects using the .NET CLI (dotnet new console)
+
+Understood project vs folder structure (.csproj, Program.cs, multiple projects in one repo)
+
+Used Console.ReadLine() and handled nullable input with string?
+
+Validated user input (null, whitespace, invalid ranges)
+
+Used if / else if / else correctly and learned why condition order matters
+
+Worked with arrays (string[] and int[])
+
+Generated random values using Random.Next
+
+Filled arrays using for loops and foreach
+
+Learned why foreach gives values, not indexes
+
+Built strings using interpolation ($"...")
+
+Fixed type mismatch errors (int vs string, arrays vs single values)
+
+Used Thread.Sleep() to control execution timing
+
+Created and called methods properly in top-level programs
+
+Committed multiple projects to Git with meaningful messages
+
+Pushed code to GitHub correctly
+
+Learned how .gitignore works for .NET projects
+
+Navigated directories correctly using cd
