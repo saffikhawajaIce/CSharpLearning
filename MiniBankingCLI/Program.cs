@@ -178,3 +178,116 @@ static void ShowBalance(decimal totalBalance)
 
 
 
+// decimal totalBalance = 1000m;
+
+// MenuPrint();
+
+// while (true)
+// {
+//     var choice = Console.ReadLine()?.Trim().ToLower();
+
+//     if (string.IsNullOrWhiteSpace(choice))
+//     {
+//         InvalidInputMessagePrint();
+//         continue;
+//     }
+
+//     if (choice == "1")
+//     {
+//         totalBalance = RunDepositFlow(totalBalance);
+//         MenuPrint();
+//     }
+//     else if (choice == "2")
+//     {
+//         totalBalance = RunWithdrawFlow(totalBalance);
+//         MenuPrint();
+//     }
+//     else if (choice == "3")
+//     {
+//         ShowBalance(totalBalance);
+//     }
+//     else if (choice == "q")
+//     {
+//         Console.WriteLine("Thankyou for using this program!");
+//         break;
+//     }
+//     else
+//     {
+//         InvalidInputMessagePrint();
+//     }
+// }
+
+// static decimal RunDepositFlow(decimal balance)
+// {
+//     while (true)
+//     {
+//         Console.WriteLine("Please Enter the Amount you'd like to deposit.");
+//         var input = Console.ReadLine();
+
+//         if (!TryGetPositiveAmount(input, out var amount))
+//         {
+//             InvalidInputMessagePrint();
+//             continue;
+//         }
+
+//         balance += amount;
+//         Console.WriteLine($"Your new total balance is {balance}");
+
+//         if (!AskYesNo("Would you like to deposit more? Type Y for yes or N for no."))
+//             return balance;
+//     }
+// }
+
+// static decimal RunWithdrawFlow(decimal balance)
+// {
+//     while (true)
+//     {
+//         Console.WriteLine("Please enter the Amount you would like to withdraw:");
+//         var input = Console.ReadLine();
+
+//         if (!TryGetPositiveAmount(input, out var amount))
+//         {
+//             InvalidInputMessagePrint();
+//             continue;
+//         }
+
+//         if (amount > balance)
+//         {
+//             Console.WriteLine("The Withdrawal Amount you have entered exceeds your total balance, please try again.");
+//             continue;
+//         }
+
+//         balance -= amount;
+//         Console.WriteLine($"Your new total balance is {balance}");
+
+//         if (!AskYesNo("Would you like to withdraw more? Type Y for yes or N for no."))
+//             return balance;
+//     }
+// }
+
+// static bool TryGetPositiveAmount(string? input, out decimal amount)
+// {
+//     amount = 0m;
+
+//     if (string.IsNullOrWhiteSpace(input))
+//         return false;
+
+//     if (!decimal.TryParse(input, out amount))
+//         return false;
+
+//     return amount > 0; // choose > 0 (recommended) or >= 0 depending on your rules
+// }
+
+// static bool AskYesNo(string prompt)
+// {
+//     while (true)
+//     {
+//         Console.WriteLine(prompt);
+//         var answer = Console.ReadLine()?.Trim().ToLower();
+
+//         if (answer == "y") return true;
+//         if (answer == "n") return false;
+
+//         InvalidInputMessagePrint();
+//     }
+// }
