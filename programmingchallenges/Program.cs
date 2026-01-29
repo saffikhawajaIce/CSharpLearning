@@ -12,7 +12,7 @@ using System.Globalization;
 // Random random = new Random();
 // int targetNum = random.Next(1,21);
 
-// int ammountOfTries = 0;
+// int AmountOfTries = 0;
 // bool guessed = false;
 // while (guessed == false) {
 
@@ -22,20 +22,20 @@ using System.Globalization;
 // if (guess < targetNum)
 // {
 //     System.Console.WriteLine("your number is too low");
-//     ammountOfTries++;
+//     AmountOfTries++;
 //   continue;
 // }
 // else if (guess > targetNum)
 // {
 //     System.Console.WriteLine("your number is too high");
-//     ammountOfTries++;
+//     AmountOfTries++;
 //   continue;
 // }
 // else if (guess == targetNum)
 // {
 //     System.Console.WriteLine("your guess was the target number!");
-//     ammountOfTries++;
-//     System.Console.WriteLine($"it took you {ammountOfTries} tries ");
+//     AmountOfTries++;
+//     System.Console.WriteLine($"it took you {AmountOfTries} tries ");
 //     guessed = true;
 // }
 // }
@@ -152,6 +152,7 @@ using System.Globalization;
 // System.Console.WriteLine("enter your age mister user");
 // int userAge;
 // bool success = int.TryParse(Console.ReadLine(), out userAge);
+// bool sucess = decimal.tryparse(Console.readline(), out 
 // if (userAge < 0)
 // {
 //     System.Console.WriteLine("that is not a real age bruh");
@@ -395,7 +396,7 @@ using System.Globalization;
 //         else
 //         {
 //             //main code logic 
-//         System.Console.WriteLine("Welcome to XYZ ATM.\n1.View Balance\n2.Withdraw Ammount\n3.Change PIN\n4.Logout");
+//         System.Console.WriteLine("Welcome to XYZ ATM.\n1.View Balance\n2.Withdraw Amount\n3.Change PIN\n4.Logout");
 //         input = Console.ReadLine();
 
 //         //checking if user inputs something other than 4 menu options
@@ -410,7 +411,7 @@ using System.Globalization;
 //                 case "1": //View Balance Logic
 //                 System.Console.WriteLine($"Your current balance is: ${defaultBalance}");
 //                 break;
-//                 case "2": //Withdraw Ammount Logic
+//                 case "2": //Withdraw Amount Logic
 //                 System.Console.WriteLine("Enter the amount to withdraw:");
 //                 decimal withdrawAmount = decimal.TryParse(Console.ReadLine(), out decimal parsedWithdrawAmount) ? parsedWithdrawAmount : 0;
 //                 if (withdrawAmount > 0 && withdrawAmount <= defaultBalance)
@@ -508,203 +509,382 @@ using System.Globalization;
 
 
 // Password Validator
-string defaultpassword = "basicP@ssword1!";
-string newaccount = "";
+// string defaultpassword = "basicP@ssword1!";
+// string newaccount = "";
 
-System.Console.WriteLine("Welcome to the Password Validator!\nIf you are new please press n for New Password\nIf you already have an existing account please press l to login!\nIf you want to end the program at any time please type quit or exit!");
-//main loop
-while (true)
-{
-    string userinput = Console.ReadLine().Trim().ToLower();
+// System.Console.WriteLine("Welcome to the Password Validator!\nIf you are new please press n for New Password\nIf you already have an existing account please press l to login!\nIf you want to end the program at any time please type quit or exit!");
+// //main loop
+// while (true)
+// {
+//     string userinput = Console.ReadLine().Trim().ToLower();
 
-    //checking for null or empty input
-    if (string.IsNullOrEmpty(userinput))
-    {
-        System.Console.WriteLine("Invalid input, please try again.");
-        continue;
-    }
+//     //checking for null or empty input
+//     if (string.IsNullOrEmpty(userinput))
+//     {
+//         System.Console.WriteLine("Invalid input, please try again.");
+//         continue;
+//     }
 
-    //checking for valid input
-    if (!userinput.Equals("n") && !userinput.Equals("l") && !userinput.Equals("quit") && !userinput.Equals("exit"))
-    {
-        System.Console.WriteLine("invalid input, please try again.");
-        continue;
-    }
+//     //checking for valid input
+//     if (!userinput.Equals("n") && !userinput.Equals("l") && !userinput.Equals("quit") && !userinput.Equals("exit"))
+//     {
+//         System.Console.WriteLine("invalid input, please try again.");
+//         continue;
+//     }
 
-    //checking for when the user whats to quit or exit
-    if (userinput.Equals("quit") || userinput.Equals("exit"))
-            {
-                System.Console.WriteLine("Thankyou for using the Password Validation System!");
-                return;
-            }
+//     //checking for when the user whats to quit or exit
+//     if (userinput.Equals("quit") || userinput.Equals("exit"))
+//             {
+//                 System.Console.WriteLine("Thankyou for using the Password Validation System!");
+//                 return;
+//             }
 
-    if (userinput.Equals("n"))
-    {
-        System.Console.WriteLine("Create new password\nPlease enter your new password.\nPlease ensure that the password meets the following requirements.");
+//     if (userinput.Equals("n"))
+//     {
+//         System.Console.WriteLine("Create new password\nPlease enter your new password.\nPlease ensure that the password meets the following requirements.");
 
-        //calling method to display the password requirement information
-        passwordrequirementsDisplay();
+//         //calling method to display the password requirement information
+//         passwordrequirementsDisplay();
 
-        while (true)
-        {
-            string userpasswordInput = Console.ReadLine().Trim();
-                if (userpasswordInput.Equals("quit") || userpasswordInput.Equals("exit"))
-                {
-                System.Console.WriteLine("Thankyou for using the Password Validation System!");
-                return;
-                }
-                //checking if the input is null or empty because cmon bro
-                if (string.IsNullOrEmpty(userpasswordInput))
-                {
-                    System.Console.WriteLine("The Password you have entered can not be empty or null. Please try again.");
-                    continue;
-                }
+//         while (true)
+//         {
+//             string userpasswordInput = Console.ReadLine().Trim();
+//                 if (userpasswordInput.Equals("quit") || userpasswordInput.Equals("exit"))
+//                 {
+//                 System.Console.WriteLine("Thankyou for using the Password Validation System!");
+//                 return;
+//                 }
+//                 //checking if the input is null or empty because cmon bro
+//                 if (string.IsNullOrEmpty(userpasswordInput))
+//                 {
+//                     System.Console.WriteLine("The Password you have entered can not be empty or null. Please try again.");
+//                     continue;
+//                 }
 
-                //password validation checking system:
-                if (userpasswordInput.Length > 40 || userpasswordInput.Length < 8)
-                {
-                    System.Console.WriteLine("Your password is too short or too long, please type your password again.");
-                    continue;
-                }
+//                 //password validation checking system:
+//                 if (userpasswordInput.Length > 40 || userpasswordInput.Length < 8)
+//                 {
+//                     System.Console.WriteLine("Your password is too short or too long, please type your password again.");
+//                     continue;
+//                 }
 
-                //splitting string into character array for looping for validation checks
-                char[] splitupuserpasswordinput = userpasswordInput.ToCharArray();
+//                 //splitting string into character array for looping for validation checks
+//                 char[] splitupuserpasswordinput = userpasswordInput.ToCharArray();
 
-                //checking for whitespace
-                bool containsSpace = false;
-                foreach (char characterinArray5 in splitupuserpasswordinput)
-                {
-                    if (char.IsWhiteSpace(characterinArray5))
-                    {
-                        containsSpace = true;
-                        break;
-                    }
+//                 //checking for whitespace
+//                 bool containsSpace = false;
+//                 foreach (char characterinArray5 in splitupuserpasswordinput)
+//                 {
+//                     if (char.IsWhiteSpace(characterinArray5))
+//                     {
+//                         containsSpace = true;
+//                         break;
+//                     }
 
-                }
+//                 }
 
-                if (containsSpace == true)
-                {
-                    System.Console.WriteLine("The password you have entered can not contain whitespace.\nPlease try again.");
-                    continue;
-                }
+//                 if (containsSpace == true)
+//                 {
+//                     System.Console.WriteLine("The password you have entered can not contain whitespace.\nPlease try again.");
+//                     continue;
+//                 }
 
-                //checking for lowercase
-                bool foundLowercase = false;
-                foreach (char characterinArray in splitupuserpasswordinput)
-                {
-                    if (char.IsLower(characterinArray))
-                    {
-                        foundLowercase = true;
-                        break;
-                    }
-                }
+//                 //checking for lowercase
+//                 bool foundLowercase = false;
+//                 foreach (char characterinArray in splitupuserpasswordinput)
+//                 {
+//                     if (char.IsLower(characterinArray))
+//                     {
+//                         foundLowercase = true;
+//                         break;
+//                     }
+//                 }
 
-                if (foundLowercase == false)
-                {
-                    System.Console.WriteLine("The Password you have entered does not contain any lowercase letters.\nPlease try again.");
-                    continue;
-                }
+//                 if (foundLowercase == false)
+//                 {
+//                     System.Console.WriteLine("The Password you have entered does not contain any lowercase letters.\nPlease try again.");
+//                     continue;
+//                 }
 
-                //checking for uppercase
-                bool foundUppercase = false;
-                foreach (char characterinArray2 in splitupuserpasswordinput)
-                {
-                    if (char.IsUpper(characterinArray2))
-                    {
-                        foundUppercase = true;
-                        break;
-                    }
-                }
-                if (foundUppercase == false)
-                {
-                    System.Console.WriteLine("The Password you have entered does not contain any uppercase letters.\nPlease try again.");
-                    continue;
-                }
+//                 //checking for uppercase
+//                 bool foundUppercase = false;
+//                 foreach (char characterinArray2 in splitupuserpasswordinput)
+//                 {
+//                     if (char.IsUpper(characterinArray2))
+//                     {
+//                         foundUppercase = true;
+//                         break;
+//                     }
+//                 }
+//                 if (foundUppercase == false)
+//                 {
+//                     System.Console.WriteLine("The Password you have entered does not contain any uppercase letters.\nPlease try again.");
+//                     continue;
+//                 }
 
-                //checking for digits 
-                bool foundDigit = false;
-                foreach (char characterinArray3 in splitupuserpasswordinput)
-                {
-                    if (char.IsDigit(characterinArray3))
-                    {
-                        foundDigit = true;
-                        break;
-                    }
-                }
-                if (foundDigit == false)
-                {
-                    System.Console.WriteLine("The Password you have entered does not contain any digits.\nPlease try again.");
-                    continue;
-                }
+//                 //checking for digits 
+//                 bool foundDigit = false;
+//                 foreach (char characterinArray3 in splitupuserpasswordinput)
+//                 {
+//                     if (char.IsDigit(characterinArray3))
+//                     {
+//                         foundDigit = true;
+//                         break;
+//                     }
+//                 }
+//                 if (foundDigit == false)
+//                 {
+//                     System.Console.WriteLine("The Password you have entered does not contain any digits.\nPlease try again.");
+//                     continue;
+//                 }
 
-                //checking for special characters
-                bool foundSpecial = false;
-                foreach (char characterinArray4 in splitupuserpasswordinput)
-                {
-                    if (!char.IsLetterOrDigit(characterinArray4))
-                    {
-                        foundSpecial = true;
-                        break;
-                    }
-                }
+//                 //checking for special characters
+//                 bool foundSpecial = false;
+//                 foreach (char characterinArray4 in splitupuserpasswordinput)
+//                 {
+//                     if (!char.IsLetterOrDigit(characterinArray4))
+//                     {
+//                         foundSpecial = true;
+//                         break;
+//                     }
+//                 }
 
-                if (foundSpecial == false)
-                {
-                    System.Console.WriteLine("The password you have entered does not contain any special characters.\nPlease try again.");
-                    continue;
-                }
+//                 if (foundSpecial == false)
+//                 {
+//                     System.Console.WriteLine("The password you have entered does not contain any special characters.\nPlease try again.");
+//                     continue;
+//                 }
 
-                System.Console.WriteLine("Your password has been created successfully!");
-                newaccount = userpasswordInput;
-                System.Console.WriteLine("Thankyou for using the Password Validation System!");
-                System.Console.WriteLine("Would you like to start over? Type n for new password, l for login or quit/exit to end program.");
-                //userpasswordInput = Console.ReadLine().Trim().ToLower();
+//                 System.Console.WriteLine("Your password has been created successfully!");
+//                 newaccount = userpasswordInput;
+//                 System.Console.WriteLine("Thankyou for using the Password Validation System!");
+//                 System.Console.WriteLine("Would you like to start over? Type n for new password, l for login or quit/exit to end program.");
+//                 //userpasswordInput = Console.ReadLine().Trim().ToLower();
 
-                // //final validation check
-                // if (foundLowercase == true && foundUppercase == true && foundDigit == true && foundSpecial == true && containsSpace == false)
-                // {
-                //     System.Console.WriteLine("Your password has been created successfully!");
-                //     newaccount = userpasswordInput;
-                //     System.Console.WriteLine("Thankyou for using the Password Validation System!");
-                //     System.Console.WriteLine("Would you like to start over? Type n for new password, l for login or quit/exit to end program.");
-                //     //userpasswordInput = Console.ReadLine().Trim().ToLower();
-                //     continue;
-                // }
+//                 // //final validation check
+//                 // if (foundLowercase == true && foundUppercase == true && foundDigit == true && foundSpecial == true && containsSpace == false)
+//                 // {
+//                 //     System.Console.WriteLine("Your password has been created successfully!");
+//                 //     newaccount = userpasswordInput;
+//                 //     System.Console.WriteLine("Thankyou for using the Password Validation System!");
+//                 //     System.Console.WriteLine("Would you like to start over? Type n for new password, l for login or quit/exit to end program.");
+//                 //     //userpasswordInput = Console.ReadLine().Trim().ToLower();
+//                 //     continue;
+//                 // }
 
-            //login system
-            if (userinput.Equals("l"))
-            {
-                System.Console.WriteLine("Great! Please enter your login password!");
-                string userloginpasswordinput = Console.ReadLine().Trim();
-                //checking for null or empty input
-                if (string.IsNullOrEmpty(userloginpasswordinput))
-                {
-                    System.Console.WriteLine("The Password you have entered can not be empty or null. Please try again.");
-                    continue;
-                }
-                //checking for correct password
-                if (userloginpasswordinput.Equals(defaultpassword) || userloginpasswordinput.Equals(newaccount))
-                {
-                    System.Console.WriteLine("Login Successful! Welcome back!");
-                    System.Console.WriteLine("Thankyou for using the Password Validation System!");
-                    System.Console.WriteLine("Would you like to start over? Type n for new password, l for login or quit/exit to end program.");
-                    userinput = Console.ReadLine().Trim().ToLower();
-                    continue;
-                }
-                else
-                {
-                    System.Console.WriteLine("Login Failed! Incorrect Password.\nPlease try again.");
-                    userinput = Console.ReadLine().Trim().ToLower();
-                    continue;
-                }
-            }
-        }
-    }
-}
+//             //login system
+//             if (userinput.Equals("l"))
+//             {
+//                 System.Console.WriteLine("Great! Please enter your login password!");
+//                 string userloginpasswordinput = Console.ReadLine().Trim();
+//                 //checking for null or empty input
+//                 if (string.IsNullOrEmpty(userloginpasswordinput))
+//                 {
+//                     System.Console.WriteLine("The Password you have entered can not be empty or null. Please try again.");
+//                     continue;
+//                 }
+//                 //checking for correct password
+//                 if (userloginpasswordinput.Equals(defaultpassword) || userloginpasswordinput.Equals(newaccount))
+//                 {
+//                     System.Console.WriteLine("Login Successful! Welcome back!");
+//                     System.Console.WriteLine("Thankyou for using the Password Validation System!");
+//                     System.Console.WriteLine("Would you like to start over? Type n for new password, l for login or quit/exit to end program.");
+//                     userinput = Console.ReadLine().Trim().ToLower();
+//                     continue;
+//                 }
+//                 else
+//                 {
+//                     System.Console.WriteLine("Login Failed! Incorrect Password.\nPlease try again.");
+//                     userinput = Console.ReadLine().Trim().ToLower();
+//                     continue;
+//                 }
+//             }
+//         }
+//     }
+// }
 
-//method to display password requirement information
-static void passwordrequirementsDisplay()
-{
-    System.Console.WriteLine("Password must contain atleast one uppercase letter.\nPassword must contain atleast one lowercase letter\nPassword must contain atleast one number\nPassword must contain atleast one special character\nPassword must be between 8 and 40 characters long.");
-}
+// //method to display password requirement information
+// static void passwordrequirementsDisplay()
+// {
+//     System.Console.WriteLine("Password must contain atleast one uppercase letter.\nPassword must contain atleast one lowercase letter\nPassword must contain atleast one number\nPassword must contain atleast one special character\nPassword must be between 8 and 40 characters long.");
+// }
+
+
+//Bank account mini using classes and methods
+//methods: Deposit(amount), Withdraw(amount), GetBalance(), PrintSummary()
+
+// decimal totalBalance = 1000.0m;
+// decimal userwithdrawAmountnumber = 0.0m;
+// decimal userdepositAmountnumber = 0.0m;
+
+// //main loop
+// MenuPrint();
+// while (true)
+// {
+//     string userInput1 = Console.ReadLine().Trim().ToLower();
+
+//     //main input validations
+//     if (string.IsNullOrWhiteSpace(userInput1))
+//     {
+//         InvalidInputMessagePrint();
+//         continue;
+//     }
+
+//     if (!userInput1.Equals("1") && !userInput1.Equals("2") && !userInput1.Equals("3") && !userInput1.Equals("q") )
+//     {
+//         InvalidInputMessagePrint();
+//         continue;
+//     }
+
+//     //Deposit logic
+//     else if (userInput1.Equals("1"))
+//     {
+//         //deposit loop
+//         while (true)
+//         {
+//             System.Console.WriteLine("Please Enter the Amount you'd like to deposit.");
+//             string userdepositAmount = Console.ReadLine();
+//             if (string.IsNullOrWhiteSpace(userdepositAmount))
+//             {
+//                 InvalidInputMessagePrint();
+//                 continue;
+//             }
+
+//             //parse string value into decimal value if its not invalid
+//             bool sucess = decimal.TryParse(userdepositAmount, out userdepositAmountnumber);
+//             if (sucess == false)
+//             {
+//                 InvalidInputMessagePrint();
+//                 continue;
+//             }
+
+//             else if (userdepositAmountnumber < 0)
+//             {
+//                 InvalidInputMessagePrint();
+//                 continue;
+//             }
+
+//             DepositAmount(userdepositAmountnumber);
+//             System.Console.WriteLine($"Your new total balance is {totalBalance}");
+//             System.Console.WriteLine("Would you like to deposit more? Type Y for yes or N for no.");
+//             string userdepositmore = Console.ReadLine().Trim().ToLower();
+//             if (userdepositmore.Equals("y"))
+//             {
+//                 continue;
+//             }
+//             else if (userdepositmore.Equals("n"))
+//             {
+//                 MenuPrint();
+//                 break;
+//             }
+//             else
+//             {
+//                 InvalidInputMessagePrint();
+//                 continue;
+//             }
+//         }
+//     }
+
+//     //Withdraw Logic
+//     else if (userInput1.Equals("2"))
+//         //withdraw loop
+//         while (true)
+//         {
+//             {
+//                 System.Console.WriteLine("Please enter the Amount you would like to withdraw:");
+//                 string userwithdrawAmount = Console.ReadLine();
+//                 if (string.IsNullOrWhiteSpace(userwithdrawAmount))
+//                 {
+//                     InvalidInputMessagePrint();
+//                     continue;
+//                 }
+
+//                 //parse string value into decimal value if its not invalid
+//                 bool success = decimal.TryParse(userwithdrawAmount, out userwithdrawAmountnumber);
+//                 if (success == false)
+//                 {
+//                     InvalidInputMessagePrint();
+//                     continue;
+//                 }
+
+//                 if (userwithdrawAmountnumber < 0)
+//                 {
+//                     InvalidInputMessagePrint();
+//                     continue;
+//                 }
+
+//                 else if (userwithdrawAmountnumber > totalBalance)
+//                 {
+//                     System.Console.WriteLine("The Withdrawal Amount you have entered exceeds your total balance, please try again.");
+//                     continue;
+//                 }
+
+//                 WithdrawAmount(userwithdrawAmountnumber);
+//                 System.Console.WriteLine($"Your new total balance is {totalBalance}");
+//                 System.Console.WriteLine("Would you like to withdraw more? Type Y for yes or N for no.");
+//                 string userwithdrawmore = Console.ReadLine().Trim().ToLower();
+//                 if (userwithdrawmore.Equals("y"))
+//                 {
+//                     continue;
+//                 }
+//                 else if (userwithdrawmore.Equals("n"))
+//                 {
+//                     MenuPrint();
+//                     break;
+//                 }
+//                 else
+//                 {
+//                     InvalidInputMessagePrint();
+//                     continue;
+//                 }
+//             }
+//         }
+
+//     //Show Balance
+//     else if (userInput1.Equals("3"))
+//     {
+//         ShowBalance(totalBalance);
+//         continue;
+//     }
+
+//     //User wants to Quit
+//     else if (userInput1.Equals("q"))
+//     {
+//         System.Console.WriteLine("Thankyou for using this program!");
+//         return;
+//     }
+// }
+
+
+// static void InvalidInputMessagePrint()
+// {
+//     System.Console.WriteLine("your input was invalid, please try again.");
+// }
+
+
+// static void MenuPrint()
+// {
+//     System.Console.WriteLine("welcome to my mini banking application!\n1:\tDeposit Amount\n2:\tWithdraw Amount\n3:\tShow Balance\nIf at any moment you'd like to quit the program please press Q");
+// }
+
+
+//  decimal DepositAmount(decimal userdepositAmount)
+// {
+//     totalBalance += userdepositAmount;
+//     return totalBalance;
+// }
+
+
+//  decimal WithdrawAmount(decimal userwithdrawAmount)
+// {
+//     totalBalance -= userwithdrawAmount;
+//     return totalBalance;
+// }
+
+
+// static void ShowBalance(decimal totalBalance)
+// {
+//     System.Console.WriteLine($"Your total Balance is: {totalBalance}");
+// }
+
 
