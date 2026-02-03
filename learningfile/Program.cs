@@ -70,6 +70,8 @@ using System.Runtime.InteropServices.Marshalling;
 using Microsoft.Win32;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using System.Data.Common;
 
 
 // string[] arrayValues = {"A11","B12", "A12","B13", "A10", "C10", "C11", "B10", "C12"};
@@ -199,34 +201,328 @@ using System.Collections.Generic;
 // }
 
 //List practice
-List<int> lt = new List<int>();
+// List<int> lt = new List<int>();
 
-System.Console.WriteLine("add this number to the list:");
+// System.Console.WriteLine("add this number to the list:");
 
-for (int i = 0; i < 4; i++)
+// for (int i = 0; i < 4; i++)
+// {
+//     int num = int.Parse(Console.ReadLine());
+//     lt.Add(num);
+//     System.Console.WriteLine("added : " + num);
+// }
+
+// foreach (int value in lt)
+// {
+//     System.Console.WriteLine(value);
+// }
+
+// List<string> lb = new List<string>();
+
+// System.Console.WriteLine("input any string you want to add to the list");
+
+// for (int x = 0; x < 4; x++)
+// {
+//     string input = Console.ReadLine();
+//     lb.Add(input);
+//     System.Console.WriteLine("added: " + input);
+
+// }
+// foreach (string value in lb)
+// {
+//     System.Console.WriteLine(value);
+// }
+
+// string name = new string{};
+// name = "burh";
+// System.Console.WriteLine(name);
+
+
+Car Honda = new Car();
+bool isthatcardrivingornah = Honda.IsDriving();
+System.Console.WriteLine(Honda.PrintSummary());
+Honda.PrintSummary();
+System.Console.WriteLine(isthatcardrivingornah);
+
+
+
+public class Car
 {
-    int num = int.Parse(Console.ReadLine());
-    lt.Add(num);
-    System.Console.WriteLine("added : " + num);
+    //for identity of the car
+    private string _make;
+    private string _colour;
+
+    //trying to turn the field into a property
+
+    public string Colour
+    {
+        get { return _colour; }
+        private set
+        {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new ArgumentException("Colour can NOT be null or whitespace or blank you STUPID");
+            }
+            else
+            {
+                _colour = value;
+            }
+        }
+    }
+
+
+    private string _model;
+    private string _VIN;
+    private int _year;
+
+    // for numeric calculations of the car
+    private double _engineCapacity;
+
+    public double EngineCapacity
+    {
+        get { return _engineCapacity; }
+        private set
+        {
+            if (double.IsNegative(value))
+            {
+                throw new ArgumentException("Why are you trying to make the engine capacity negative bro cmon");
+            }
+            else
+            {
+                _engineCapacity = value;
+            }
+        }
+    }
+
+    //field fueltype
+    private string _fueltype;
+
+    //property fueltype
+    public string Fueltype
+    {
+        get { return _fueltype; }
+        private set
+        {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new ArgumentException("Bruh why are you trynna make the fueltype null or whitespace lets be so fr");
+            }
+            else
+            {
+                _fueltype = value;
+            }
+        }
+    }
+
+    private int _horsepower;
+
+    public int Horsepower
+    {
+        get { return _horsepower; }
+        private set
+        {
+            if (int.IsNegative(value))
+            {
+                throw new ArgumentException("WHY is the horsepower negative?");
+            }
+            else if (int.Equals(0))
+            {
+                throw new ArgumentException("WHY IS THE HORSEPOWER 0?");
+            }
+            else
+            {
+                _horsepower = value;
+            }
+        }
+    }
+    private string _transmission;
+
+    public string Transmission
+    {
+        get { return _transmission; }
+        private set
+        {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new ArgumentException("WHY DO YOU WANT TO MAKE THE TRANSMISSION NULL OR BLANK BRUH ARE YOU KIDDING BE SO FR");
+            }
+            else if ((!string.Equals("manual")) || (!string.Equals("automatic")) || (!string.Equals("semiautomatic")))
+            {
+                throw new ArgumentException("please for the sake of everything that is green and lovely, the transmission can ONLY BE manual auto or semiauto");
+            }
+            else
+            {
+                _transmission = value;
+            }
+        }
+    }
+
+
+    //for usage and state of the car
+    private double _mileage;
+
+    public double Mileage
+    {
+        get { return _mileage; }
+        private set
+        {
+            if (int.IsNegative(value))
+            {
+                throw new ArgumentException("why is the mileage negative? what are you trynna do here? whats wrong w you bruh");
+            }
+            else
+            {
+                _mileage = value;
+            }
+        }
+    }
+
+    private double _fuellevel;
+
+    public double Fuellevel
+    {
+        get{return _fuellevel;}
+        private set
+        {
+            if(double.IsNegative(value) || double.IsNaN(value))
+            {
+                throw new ArgumentException("PLEASE PLEASE fuel level CAN NOT BE NEGATIVE OR NOTANUMBER DUDDDDEEEE");
+            }
+            else
+            {
+                _fuellevel = value;
+            }
+        }
+    } 
+
+
+    public bool _isrunning;
+
+    public bool IsRunning
+    {
+        get { return _isrunning; }
+        private set { _isrunning = value; }
+    }
+
+
+    //ownership and value
+
+    private double _price;
+    public double Price
+    {
+        get{return _price;}
+    }
+
+    private string _ownername;
+
+    public string Ownername
+    {
+        get{return _ownername;}
+        private set
+        {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new ArgumentException("why is the owner's name null or empty or blank dude ts pmo fr 🥀");
+            }
+        }
+    }
+
+
+    private string _registrationNumber;
+
+    public string Registrationnumber
+    {
+        get{return _registrationNumber;}
+    }
+
+    //lets try and make a default constructor:
+    public Car()
+    {
+        this.make = "Honda";
+        this.colour = "White";
+        this.year = 2004; //this is my birthday year so im setting this as default
+        this.model = "Civic";
+        this.EngineCapacity = 1800.0;
+        this.fueltype = "89-Octane";
+        this.price = 1700000.00;
+
+    }
+
+    //parameterized constructor
+    public Car(string _make, string colour, int year, string model, double EngineCapacity, string fueltype, double price)
+    {
+        this._make = _make;
+        this.colour = colour;
+        this.year = year;
+        this.model = model;
+        this.EngineCapacity = EngineCapacity;
+        this.fueltype = fueltype;
+        this.price = price;
+    }
+
+
+    public void PrintSummary()
+    {
+        System.Console.WriteLine(GetSummary());
+    }
+
+    public string GetSummary()
+    {
+        return $"Make: {make}, Model: {model}, Year: {year}, Colour: {colour}, " +
+               $"Engine: {EngineCapacity}, Fuel: {fueltype}, Price: {price}";
+    }
+
+
+    public bool IsDriving()
+    {
+        IsRunning = true;
+        return IsRunning;
+    }
+
+    public bool IsNotDriving()
+    {
+        IsRunning = false;
+        return IsRunning;
+    }
+
+    public void StartEngine()
+    {
+        System.Console.WriteLine("Engine is now running. Chop Chop homie");
+        IsRunning = true;
+        _fuellevel--;
+    }
+
+    public void StopEngine()
+    {
+        System.Console.WriteLine("Engine has now stopped. Zzz");
+    }
+
+    public void Drive()
+    {
+        // if (IsRunning = true)
+        // {
+        //     IsDriving();
+        //     System.Console.WriteLine("You are now driving the car.");
+        //     _fuellevel--;
+        // }
+        // else
+        // {
+        //     throw new ArgumentException("How are you driving without the engine running dude.");
+        // }
+        IsDriving();
+    }
+
+    public void Refuel(int ammount)
+    {
+        if (_fuellevel > 1000)
+        {
+            System.Console.WriteLine("broooooo your car cant be refueled the fuel level is full");
+        }
+       else
+        {
+            _fuellevel += ammount;
+        }
+    }
+
 }
 
-foreach (int value in lt)
-{
-    System.Console.WriteLine(value);
-}
-
-List<string> lb = new List<string>();
-
-System.Console.WriteLine("input any string you want to add to the list");
-
-for (int x = 0; x < 4; x++)
-{
-    string input = Console.ReadLine();
-    lb.Add(input);
-    System.Console.WriteLine("added: " + input);
-
-}
-foreach (string value in lb)
-{
-    System.Console.WriteLine(value);
-}
