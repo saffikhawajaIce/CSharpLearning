@@ -1,0 +1,31 @@
+public class User
+{
+    private string _username;
+    private string _password;
+
+    public string Username
+    {
+        get { return _username; }
+        set { _username = value; }
+    }
+
+    public string Password
+    {
+        get { return _password; }
+        set { _password = value; }
+    }
+
+    public User(string username, string password)
+    {
+        Username = username;
+        Password = password;
+    }
+
+
+    public void DisplayUserInfo()
+    {
+        Console.WriteLine($"Username: {Username}");
+        Console.WriteLine($"Password: {Password}");
+    }
+
+}

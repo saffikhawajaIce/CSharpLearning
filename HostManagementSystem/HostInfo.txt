@@ -1,0 +1,3 @@
+webserver01|WebPass123!|192.168.1.10|saffi
+dbserver02|DataBase9$|192.168.1.25|ali
+backupnode03|SecureNode7#|192.167.1.55|saffi
